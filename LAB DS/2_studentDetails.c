@@ -26,7 +26,7 @@ int main()
     }
     while (1)
     {
-        printf("Enter 1 to read\n 2 to display\n 3 to calculate Average of best 2 marks:\n");
+        printf("Enter\n1 to read\n2 to display\n3 to calculate Average of best 2 marks:\n");
         scanf("%d", &i);
         switch (i)
         {
@@ -50,7 +50,7 @@ int main()
 void read(stud *ptr, int n)
 {   int i;
     for(i=0; i<n; i++){
-    printf("Enter student%d Name, RegisterNumber, marks of 3 test out of 30: \n", n);
+    printf("Enter student%d Name, RegisterNumber, marks of 3 test out of 30: \n", i+1);
     scanf("%s%d%d%d%d", ptr->name, &ptr->reg_no, &ptr->m1, &ptr->m2, &ptr->m3);
     ptr++;
     }
@@ -59,7 +59,7 @@ void read(stud *ptr, int n)
 void display(stud *ptr, int n)
 {
     int i;
-    printf("Name\tRegiNo\tM1\tM2\tM3\tAverage\n");
+    printf("Name\tReg_No\tM1\tM2\tM3\tAverage\n");
     for(i=0; i<n; i++){
         printf("%s\t%d\t%d\t%d\t%d\t%f\n", ptr->name, ptr->reg_no, ptr->m1, ptr->m2, ptr->m3, ptr->avg);
         ptr++;
