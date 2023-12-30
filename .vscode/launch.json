@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/git_upload/C-Data-Structures/Pointers/pointersAndStrings",
-      "program": "d:/git_upload/C-Data-Structures/Pointers/pointersAndStrings/build/Debug/outDebug",
+      "cwd": ".",
+      "program": "build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
