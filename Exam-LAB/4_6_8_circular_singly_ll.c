@@ -375,6 +375,25 @@ void createOrderedList(struct cList *list, int val) {
     current->link = newNode;
 }
 
+// void createOrderedList(struct cList *olist,int val){
+//     struct node *cur=olist->head->link;
+//     if(olist->head->link==NULL||cur->data>val){
+//         insertAtFront(olist,val);
+//         return ;
+//     }
+//     int i;
+//     for(i=1;cur->data<val&&cur->link!=olist->head->link;i++)
+//      cur=cur->link;
+
+//     if(cur->data<val){
+//         insertAtPosition(olist,val,i+1);
+//         return ;
+//     }
+    
+//     insertAtPosition(olist,val,i);
+//     return ;
+// }
+
 void reverseList(struct cList *list) {
     // Check if the list is empty or has only one node
     if (list == NULL || list->head == NULL || list->head->link == list->head) {

@@ -12,6 +12,7 @@ struct Queue
     int front; // Index Of front element in Queue
     int rear;  // Index of rear element in Queue
 } Q;
+
 // Function to check Priority
 int prioritycheck(int X)
 {

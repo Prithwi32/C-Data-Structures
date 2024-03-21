@@ -47,7 +47,7 @@ void delete_by_ele(int *arr)
     printf("Enter The elements that should be deleted\n");
     scanf("%d", &ele);
     for (i = 0; i < ne && *(arr + i) != ele; i++)
-        ;
+        ; 
     if (i == ne)
     {
         printf("element not found in The Array list\n");

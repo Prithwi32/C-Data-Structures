@@ -202,7 +202,6 @@ int main()
         // }
         case 1:
             insert_by_order();
-            display(order); 
             break;
         case 2:
             delete_by_pos(arr);
@@ -218,7 +217,6 @@ int main()
             break;
         case 5:
             display(arr);
-            break;
             break;
         default:
             printf("Invalid Choice\n");

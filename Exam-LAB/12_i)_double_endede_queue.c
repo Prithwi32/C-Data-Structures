@@ -1,4 +1,4 @@
-// 12. Develop a menu driven program to implement the following types of Queues by allocatingmemory dynamically.
+// 12. Develop a menu driven program to implement the following types of Queues by allocating memory dynamically.
 // ii) Double ended Queue
 
 // Double Ended Queue Dynamic
@@ -24,17 +24,20 @@ void pushrear(int val)
         size++;
         Q.queue = (int *)realloc(Q.queue, size * sizeof(int));
     }
-    if (Q.front == -1)
-        Q.front = Q.rear = 0;
-    if (Q.rear == size - 1)
-    {
-        Q.rear = 0;
-    }
-    else
-    {
-        Q.rear++;
-    }
+    // if (Q.front == -1)
+    //     Q.front = Q.rear = 0;
+    // if (Q.rear == size - 1)
+    // {
+    //     Q.rear = 0;
+    // }
+    // else
+    // {
+    //     Q.rear++;
+    // }
+    Q.rear++;
     *(Q.queue + Q.rear) = val;
+    if (Q.front == -1)
+        Q.front = 0;
     printf("Insertion Succesfull\n");
 }
 
@@ -42,27 +45,37 @@ void pushrear(int val)
 void pushfront(int val)
 {
     // Checking if Queue is Full
-    if (Q.rear == size - 1 && Q.front == 0 || Q.front > Q.rear)
-    {
-        printf("Queue is Full\n");
-        printf("Reallocating Memory\n");
-        size++;
-        Q.queue = (int *)realloc(Q.queue, size * sizeof(int));
+    // if (Q.rear == size - 1 && Q.front == 0 || Q.front > Q.rear)
+    // {
+    //     printf("Queue is Full\n");
+    //     printf("Reallocating Memory\n");
+    //     size++;
+    //     Q.queue = (int *)realloc(Q.queue, size * sizeof(int));
+    // }
+    // if (Q.front == -1)
+    // {
+    //     Q.front = Q.rear = 0;
+    // }
+    // else if (Q.front == 0)
+    // {
+    //     Q.front = size - 1;
+    // }
+    // else
+    // {
+    //     Q.front--;
+    // }
+
+    if(Q.rear == -1){
+        Q.rear++;
+        *(Q.queue + Q.rear) = val;
+        return;
     }
-    if (Q.front == -1)
-    {
-        Q.front = Q.rear = 0;
-    }
-    else if (Q.front == 0)
-    {
-        Q.front = size - 1;
-    }
-    else
-    {
+    if(Q.front != 0){
         Q.front--;
-    }
     *(Q.queue + Q.front) = val;
-    printf("Insertion Succesfull\n");
+    return;
+    }
+    printf("Front Insertion not possible\n");
 }
 
 // Function to delete the front element of Queue
@@ -76,19 +89,22 @@ void popfront()
     {
         // Deleting Element from front
         printf("Deleted Element : %d\n", *(Q.queue + Q.front));
-    }
-    if (Q.front == Q.rear)
-    {
+        Q.front++;
+        if(Q.front > Q.rear)
         Q.front = Q.rear = -1;
     }
-    else if (Q.front == size - 1)
-    {
-        Q.front = 0;
-    }
-    else
-    {
-        Q.front++;
-    }
+    // if (Q.front == Q.rear)
+    // {
+    //     Q.front = Q.rear = -1;
+    // }
+    // else if (Q.front == size - 1)
+    // {
+    //     Q.front = 0;
+    // }
+    // else
+    // {
+    //     Q.front++;
+    // }
 }
 
 // Function to delete the rear element of Queue
@@ -102,14 +118,17 @@ void poprear()
     {
         // Deleting Element from rear
         printf("Deleted Element : %d\n", *(Q.queue + Q.rear));
-    }
-    if (Q.front == Q.rear)
-        Q.front = Q.rear = -1;
-
-    else if (Q.rear == 0)
-        Q.rear = size - 1;
-    else
         Q.rear--;
+        if(Q.front > Q.rear)
+        Q.front = Q.rear = -1;
+    }
+    // if (Q.front == Q.rear)
+    //     Q.front = Q.rear = -1;
+
+    // else if (Q.rear == 0)
+    //     Q.rear = size - 1;
+    // else
+    //     Q.rear--;
 }
 
 // Function Display all elements of Queue
@@ -180,6 +199,19 @@ void main()
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // #include<stdio.h>
 // #include<stdlib.h>

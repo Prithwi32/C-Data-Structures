@@ -279,17 +279,20 @@ void createOrderedList(struct cdlist *list, int val){
         (list->head->data)++;
         return;
     }
-    struct node *curr = list->head;
-    do{
-        if(curr->nlink->data < val)
-        curr = curr->nlink;
-        else
-        break;
-    }while(curr->nlink != first);
-    // if(curr == list->head){
-    //     insertAtFront(list, val);
-    //     return;
-    // }
+    struct node *curr = list->head->nlink;
+    // do{
+    //     if(curr->nlink->data < val)
+    //     curr = curr->nlink;
+    //     else
+    //     break;
+    // }while(curr->nlink != first);
+    // // if(curr == list->head){
+    // //     insertAtFront(list, val);
+    // //     return;
+    // // }
+
+    while(curr != list->head->nlink && curr->data < val)
+    curr = curr->nlink;
         struct node *next = curr->nlink;
         new->nlink = next;
         next->plink = new;
@@ -328,6 +331,7 @@ void search_by_pos(struct cdlist *list){
     }
     printf("The element at %d position is: %d",pos,curr->data);
 }
+
 int main()
 {
     int choice, value, pos, key, i, n;
